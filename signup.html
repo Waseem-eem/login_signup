@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title> register</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: rgb(250, 248, 248);
+            background: url('/static/tree.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .form {
+            width: 300px;
+            text-align: center;
+            background: rgb(128, 144, 160 , 0.5);
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .form h2 {
+            color: lightgreen;
+            font-size: 30px;
+            letter-spacing: 1px;
+            font-family: cursive;
+            font-style: italic;
+            margin: 0px;
+            margin-bottom: 10px;
+        }
+
+        /* Remove the border when the input is in focus */
+        input:focus {
+            outline: none;
+            border: none;
+            /* You can also add other styles here if needed */
+        }
+
+        /* Add a background color when the input is in focus */
+        input:focus {
+            background-color: transparent;
+            /* You can choose any color you prefer */
+        }
+
+        .input-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-container i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            text-align: left;
+            transform: translateY(-50%);
+        }
+
+        .input-container input {
+            width: 80%;
+            font-size: 15px;
+            padding: 7px 7px 7px 0px;
+            border-radius: 5px;
+            border: none;
+            padding-left: 5px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 60px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .form button {
+            width: 85%;
+            font-size: 17px;
+            padding: 7px;
+            border-radius: 5px;
+            border: none;
+            background: lightgreen;
+        }
+
+        .form p {
+            color: white;
+        }
+
+        .form a {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="POST">
+    <div class="form" >
+        <h2>Register</h2>
+        <div class="input-container">
+          <input type="text" id="name" name="name" placeholder="Name" required>
+      </div>
+      <div class="input-container">
+        <input type="text" id="country" name="country" placeholder="Country" required>
+    </div>
+        <div class="input-container">
+            <input type="email" id="email" name="email" placeholder="Gmail" required>
+        </div>
+        <div class="input-container">
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <span class="toggle-password" onclick="togglePasswordVisibility()"><i class="fa fa-eye-slash"></i></span>
+        </div>
+        <button type="submit" value="Signup">Register</button>
+        <p>Already have account <a href="/login">Login</a></p>
+    </div>
+</form>
+    <script>
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById("password");
+            const toggleButton = document.querySelector(".toggle-password i");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleButton.classList.remove("fa-eye-slash");
+                toggleButton.classList.add("fa-eye");
+            } else {
+                passwordInput.type = "password";
+                toggleButton.classList.remove("fa-eye");
+                toggleButton.classList.add("fa-eye-slash");
+            }
+        }
+    </script>
+</body>
+
+</html>
